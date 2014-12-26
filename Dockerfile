@@ -11,6 +11,6 @@ VOLUME ["/data/configdb"]
 
 WORKDIR /data
 
-CMD ["/usr/bin/mongod", "--configsvr"]
+CMD ["mongod", "--configsvr"]
 
 EXPOSE 27019

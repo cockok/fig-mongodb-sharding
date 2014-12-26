@@ -6,17 +6,7 @@ fig-mongodb-sharding
 ```shell
 fig up -d
 # Wait a few minutes.
-mongo localhost/admin
-sh.addShard("shard1:27018")
-sh.addShard("shard2:27018")
-```
-
-for osx
-```shell
-boot2docker up
-fig up -d
-# Wait a few minutes.
-mongo {boot2docker-ip}/admin
+fig run client mongo mongos/admin
 sh.addShard("shard1:27018")
 sh.addShard("shard2:27018")
 ```
