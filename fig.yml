@@ -1,0 +1,19 @@
+mongos:
+  image: dockerfile/mongodb
+  command: mongos --configdb config
+  ports:
+    - "27017:27017"
+  links:
+    - config
+    - shard1
+    - shard2
+config:
+  build: .
+  #image: dockerfile/mongodb
+  #command: mongod --configsvr --dbpath=/data/db
+shard1:
+  image: dockerfile/mongodb
+  command: mongod --shardsvr
+shard2:
+  image: dockerfile/mongodb
+  command: mongod --shardsvr
